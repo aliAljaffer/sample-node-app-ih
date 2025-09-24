@@ -35,7 +35,7 @@ jobs:
 
      - name: Run unit tests with coverage and JUnit reports
        env:
-         JEST_JUNIT_OUTPUT: coverage/junit.xml
+         JEST_JUNIT_OUTPUT: coverage/clover.xml
        run: npm run test:coverage
 
      - name: Publish test results to Checks
@@ -43,7 +43,7 @@ jobs:
        if: always()
        with:
          name: Jest Test Results
-         path: coverage/junit.xml
+         path: coverage/clover.xml
          reporter: jest-junit
          fail-on-error: true
 
